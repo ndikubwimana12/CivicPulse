@@ -104,7 +104,7 @@ Additional configuration options can be found in `civicpulse/settings.py`.
 
 ```bash
 #Clone the repo
-git clone https://github.com/your-username/civicpulse.git
+git clone https://github.com/your-ndikubwimana12/civicpulse.git
 cd civicpulse
 
 # Create a virtual environment
