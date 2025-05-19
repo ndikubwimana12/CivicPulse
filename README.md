@@ -78,6 +78,7 @@ Click the image above to watch the video demo.
 - Python 3.8+
 - pip (Python package manager)
 - Virtual environment (recommended)
+- import database (**civicpulse_db**) in project folder
 
 
 ### Custom Settings
@@ -118,7 +119,7 @@ python manage.py migrate
 
 # Start the server
 python manage.py runserver
-
+```
 
 ##  Developer
 
