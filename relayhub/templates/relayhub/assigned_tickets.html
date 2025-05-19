@@ -1,0 +1,31 @@
+{% extends 'relayhub/base.html' %}
+{% block content %}
+<h3>Assigned Complaints</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Citizen</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Submitted</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ticket in tickets %}
+        <tr>
+            <td>{{ ticket.id }}</td>
+            <td>{{ ticket.citizen.username }}</td>
+            <td>{{ ticket.category }}</td>
+            <td>{{ ticket.get_status_display }}</td>
+            <td>{{ ticket.submitted_at|date:"Y-m-d H:i" }}</td>
+            <td><a href="{% url 'respond_ticket' ticket.id %}" class="btn btn-sm btn-primary">Respond</a></td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6" class="text-center">No assigned tickets.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

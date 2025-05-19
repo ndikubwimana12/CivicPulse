@@ -1,0 +1,8 @@
+<h3>Select a ticket to view its progress:</h3>
+<ul>
+    {% for ticket in tickets %}
+        <li><a href="{% url 'ticket_timeline' ticket.id %}">{{ ticket.subject }} ({{ ticket.status }})</a></li>
+    {% empty %}
+        <li>No tickets found.</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,59 @@
+{% extends 'relayhub/base.html' %}
+
+{% block title %}CivicPulse - Connect with Government Services{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10 text-center">
+            <div class="mt-5 mb-5">
+                <h1 class="display-4">Welcome to CivicPulse</h1>
+                <p class="lead">Bridging the gap between citizens and government services</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-body p-5">
+                    <h2 class="text-center mb-4">Get Started</h2>
+                    <p class="text-center">CivicPulse helps you submit and track service requests to government agencies efficiently.</p>
+                    
+                    <div class="d-grid gap-3 col-md-8 mx-auto mt-4">
+                        <a href="{% url 'register_user' %}" class="btn btn-primary btn-lg">Register</a>
+                        <a href="{% url 'login_user' %}" class="btn btn-outline-primary btn-lg">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Submit Requests</h3>
+                    <p class="card-text">Easily submit service requests to the appropriate government departments.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Track Progress</h3>
+                    <p class="card-text">Monitor the status of your requests in real-time with our tracking system.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <h3 class="card-title">Get Updates</h3>
+                    <p class="card-text">Receive timely updates and responses from government officials.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

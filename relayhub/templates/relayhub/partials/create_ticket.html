@@ -1,0 +1,6 @@
+<h4>Create a New Ticket</h4>
+<form method="post" hx-post="{% url 'create_ticket' %}" hx-target="#main-content" hx-swap="innerHTML">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

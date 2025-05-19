@@ -1,0 +1,37 @@
+{% extends 'relayhub/base.html' %}
+{% block content %}
+<style>
+    .circle {
+      width: 40px;
+      height: 40px;
+      line-height: 24px;
+      font-size: 18px;
+    }
+    .progress-steps {
+      position: relative;
+    }
+    .progress-steps::before {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: 5%;
+      right: 5%;
+      height: 4px;
+      background: #ccc;
+      z-index: -1;
+    }
+    </style>
+<div class="container mt-4">
+  <h4>Complaint Status Timeline</h4>
+  <div class="progress-steps d-flex justify-content-between mt-5">
+    {% for step in steps %}
+      <div class="text-center">
+        <div class="circle {% if ticket.status == step.key or step.key in ticket.status %}bg-success{% else %}bg-secondary{% endif %} text-white p-3 rounded-circle">
+          {{ forloop.counter }}
+        </div>
+        <small>{{ step.label }}</small>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

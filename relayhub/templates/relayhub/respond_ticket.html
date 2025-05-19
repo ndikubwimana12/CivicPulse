@@ -1,0 +1,92 @@
+{% extends 'relayhub/base.html' %}
+
+{% block title %}Respond to Ticket - CivicPulse{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-reply me-2"></i>Respond to Ticket #{{ ticket.id }}</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Ticket Details -->
+                    <div class="mb-4">
+                        <h5>{{ ticket.title }}</h5>
+                        <div class="text-muted mb-2">
+                            <small>
+                                <i class="fas fa-user me-1"></i> {{ ticket.submitted_by.username }} | 
+                                <i class="fas fa-calendar me-1"></i> {{ ticket.submitted_at|date:"F j, Y, g:i a" }}
+                            </small>
+                        </div>
+                        <p>{{ ticket.description }}</p>
+                        <div class="d-flex">
+                            <span class="badge {% if ticket.status == 'submitted' %}bg-success{% elif ticket.status == 'in_progress' %}bg-warning text-dark{% elif ticket.status == 'resolved' %}bg-secondary{% else %}bg-info{% endif %} me-2">
+                                {{ ticket.get_status_display }}
+                            </span>
+                            {% if ticket.category %}
+                                <span class="badge bg-info me-2">{{ ticket.category.name }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Response Form -->
+                    <form method="post" class="mb-4">
+                        {% csrf_token %}
+                        
+                        <div class="form-group mb-3">
+                            <label for="{{ response_form.response_note.id_for_label }}" class="form-label fw-bold">Your Response:</label>
+                            {{ response_form.response_note }}
+                            {% if response_form.response_note.errors %}
+                                <div class="text-danger mt-1">{{ response_form.response_note.errors }}</div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group mb-3">
+                            <label for="{{ status_form.status.id_for_label }}" class="form-label fw-bold">Update Status:</label>
+                            {{ status_form.status }}
+                            {% if status_form.status.errors %}
+                                <div class="text-danger mt-1">{{ status_form.status.errors }}</div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="{% url 'assigned_tickets' %}" class="btn btn-outline-secondary">
+                                <i class="fas fa-arrow-left me-1"></i> Back to Tickets
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane me-1"></i> Submit Response
+                            </button>
+                        </div>
+                    </form>
+
+                    <hr>
+
+                    <!-- Previous Responses -->
+                    <h5 class="mb-3"><i class="fas fa-history me-2"></i>Previous Responses</h5>
+                    {% if previous_responses %}
+                        <div class="list-group">
+                            {% for response in previous_responses %}
+                                <div class="list-group-item">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <strong>{{ response.responder.username }}</strong>
+                                        <small class="text-muted">{{ response.created_at|date:"F j, Y, g:i a" }}</small>
+                                    </div>
+                                    <p class="mb-0">{{ response.response_note }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i> No previous responses for this ticket.
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

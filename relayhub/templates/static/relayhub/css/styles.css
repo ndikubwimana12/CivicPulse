@@ -1,0 +1,98 @@
+/* Main layout */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    background-color: #3f51b5 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: white !important;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.nav-link:hover {
+    color: white !important;
+}
+
+.main-content {
+    padding: 20px 0;
+}
+
+/* Cards */
+.card {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-header {
+    border-radius: 8px 8px 0 0 !important;
+    font-weight: 600;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/* Admin section */
+.admin-card {
+    border-color: #3f51b5 !important;
+}
+
+.admin-card .card-header {
+    background-color: #3f51b5 !important;
+    color: white !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #3f51b5 !important;
+    border-color: #3f51b5 !important;
+}
+
+.btn-primary:hover {
+    background-color: #303f9f !important;
+    border-color: #303f9f !important;
+}
+
+.btn-outline-primary {
+    color: #3f51b5 !important;
+    border-color: #3f51b5 !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #3f51b5 !important;
+    border-color: #3f51b5 !important;
+    color: white !important;
+}
+
+/* Forms */
+.form-control:focus {
+    border-color: #3f51b5 !important;
+    box-shadow: 0 0 0 0.25rem rgba(63, 81, 181, 0.25) !important;
+}
+
+/* List groups */
+.list-group-item-action:hover {
+    background-color: rgba(63, 81, 181, 0.05) !important;
+}
+
+/* Utilities */
+.text-primary {
+    color: #3f51b5 !important;
+}
+
+.bg-primary {
+    background-color: #3f51b5 !important;
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}

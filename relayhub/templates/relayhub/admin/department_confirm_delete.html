@@ -1,0 +1,35 @@
+{% extends 'relayhub/base.html' %}
+
+{% block title %}Delete Department{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h2>Confirm Deletion</h2>
+                </div>
+                <div class="card-body">
+                    <p>Are you sure you want to delete the department "{{ department.name }}"?</p>
+                    
+                    {% if department.categories.count > 0 %}
+                        <div class="alert alert-warning">
+                            <strong>Warning:</strong> This department has {{ department.categories.count }} categories associated with it. 
+                            Deleting this department will also delete all associated categories and may affect tickets.
+                        </div>
+                    {% endif %}
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="d-flex justify-content-between">
+                            <a href="{% url 'admin_departments' %}" class="btn btn-secondary">Cancel</a>
+                            <button type="submit" class="btn btn-danger">Delete Department</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
