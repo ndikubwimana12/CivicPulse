@@ -11,6 +11,13 @@ Many citizens face difficulties when trying to report issues or interact with go
 ## Vision
 CivicPulse aims to modernize public service delivery by enabling transparent, responsive, and efficient interaction between citizens and government agencies.
 
+## Demo Video
+
+[![Watch Demo](https://img.icons8.com/clouds/100/000000/video-playlist.png)](https://drive.google.com/file/d/1A2B3C4D5E6F7G8H9/view?usp=sharing)
+
+
+Click the image above to watch the video demo.
+
 
 ## Sample System Pages
 ### Home Page
